@@ -19,7 +19,7 @@ const db = admin.firestore();
 const signups = db.collection("signups");
 
 
-app.listen(process.env.PORT, function () {
+app.listen(3000, function () {
     console.log("Server started");
 });
 
@@ -30,11 +30,16 @@ app.get("/", function (req, res) {
 app.post("/", async function (req, res) {
     email = req.body.email;
     mobile = '+91' + req.body.mobile;
+    if (email == '' && mobile == '+91') {
+        res.sendFile(__dirname + '/failure.html');
+        return;
+    }
     const check = await signups.where('mobile', '==', mobile).get();
     if (check.empty) {
         await signups.add({
             mobile: mobile,
             email: email,
+            date: Date(),
         }).then(function () {
             res.sendFile(__dirname + '/success.html');
         });
