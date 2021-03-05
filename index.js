@@ -20,7 +20,7 @@ const signups = db.collection("signups");
 
 
 app.listen(process.env.PORT, function () {
-    console.log("Server started on port 3000");
+    console.log("Server started");
 });
 
 app.get("/", function (req, res) {

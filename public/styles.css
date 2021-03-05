@@ -35,6 +35,10 @@ body {
   margin-top: 40px;
 }
 
+.btn {
+  background-color: #7a7ace;
+}
+
 input {
   border-radius: 10px;
   height: 35px;
@@ -42,6 +46,7 @@ input {
   border: 1px solid #a1a1a1;
   margin-right: 20px;
   font-size: 12px;
+  padding: 5px 15px;
 }
 
 input:focus {
