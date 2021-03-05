@@ -36,9 +36,13 @@ app.post("/", async function (req, res) {
             mobile: mobile,
             email: email,
         }).then(function () {
-            res.send("Thank you for signing up");
+            res.sendFile(__dirname + '/success.html');
         });
     } else {
-        res.send("User Already exists");
+        res.sendFile(__dirname + '/failure.html');
     }
+});
+
+app.post("/failure", function (req, res) {
+    res.redirect("/");
 });
