@@ -19,7 +19,7 @@ const db = admin.firestore();
 const signups = db.collection("signups");
 
 
-app.listen(process.env.PORT, function () {
+app.listen(3000, function () {
     console.log("Server started");
 });
 
