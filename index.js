@@ -1,0 +1,44 @@
+const express = require("express");
+const app = express();
+
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + "/public"));
+
+const admin = require("firebase-admin");
+const serviceAccount = require("./serviceAccountKey.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+});
+
+const db = admin.firestore();
+
+const signups = db.collection("signups");
+
+
+app.listen(3000, function () {
+    console.log("Server started on port 3000");
+});
+
+app.get("/", function (req, res) {
+    res.sendFile(__dirname + "/index.html");
+});
+
+app.post("/", async function (req, res) {
+    email = req.body.email;
+    mobile = '+91' + req.body.mobile;
+    const check = await signups.where('mobile', '==', mobile).get();
+    if (check.empty) {
+        await signups.add({
+            mobile: mobile,
+            email: email,
+        }).then(function () {
+            res.send("Thank you for signing up");
+        });
+    } else {
+        res.send("User Already exists");
+    }
+});

@@ -1,0 +1,53 @@
+body {
+  margin: 40px 50px;
+  font-family: 'Poppins';
+}
+
+.main_div {
+  margin: 85px 0;
+}
+
+.hand {
+  font-size: 46px;
+}
+
+.welcome {
+  margin-top: 45px;
+  font-size: 42px;
+  width: 300px;
+}
+
+.introduction {
+  margin-top: 45px;
+  width: 375px;
+  font-size: 16px;
+}
+
+.launch {
+  border-radius: 10px;
+  background-color: #eae9fb;
+  padding: 5px 15px;
+  width: 270px;
+  color: #7a7ace;
+}
+
+.form {
+  margin-top: 40px;
+}
+
+input {
+  border-radius: 10px;
+  height: 35px;
+  border: none;
+  border: 1px solid #a1a1a1;
+  margin-right: 20px;
+  font-size: 12px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.labels {
+  word-spacing: 135px;
+}
