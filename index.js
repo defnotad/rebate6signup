@@ -23,7 +23,10 @@ app.listen(process.env.PORT, function () {
     console.log("Server started");
 });
 
-app.get("/", function (req, res) {
+app.get("/", async function (req, res) {
+    await signups.get().then(function (snapshot) {
+        console.log(snapshot.size);
+    });
     res.sendFile(__dirname + "/index.html");
 });
 
