@@ -24,9 +24,9 @@ app.listen(process.env.PORT, function () {
 });
 
 app.get("/", async function (req, res) {
-    await signups.get().then(function (snapshot) {
-        console.log(snapshot.size);
-    });
+    // await signups.get().then(function (snapshot) {
+    //     console.log(snapshot.size);
+    // });
     res.sendFile(__dirname + "/index.html");
 });
 
